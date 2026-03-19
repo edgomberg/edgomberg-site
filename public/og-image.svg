@@ -1,0 +1,33 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a0a0a;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1a1a2e;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#d4a574;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#c4956a;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bg)" />
+
+  <!-- Subtle top accent line -->
+  <rect x="80" y="80" width="120" height="3" fill="url(#accent)" rx="1.5" />
+
+  <!-- Name -->
+  <text x="80" y="240" font-family="Georgia, 'Times New Roman', serif" font-size="72" font-weight="bold" fill="#f5f0eb" letter-spacing="-1">Ed Gomberg</text>
+
+  <!-- Tagline line 1 -->
+  <text x="80" y="320" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="28" fill="#a0978e" letter-spacing="0.5">The difference between knowing and doing</text>
+
+  <!-- Tagline line 2 -->
+  <text x="80" y="360" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="28" fill="#a0978e" letter-spacing="0.5">is the most underserved problem.</text>
+
+  <!-- URL -->
+  <text x="80" y="520" font-family="'SF Mono', 'Fira Code', 'Courier New', monospace" font-size="18" fill="#6b6560" letter-spacing="2">edgomberg.com</text>
+
+  <!-- Bottom accent line -->
+  <rect x="80" y="545" width="80" height="2" fill="url(#accent)" rx="1" />
+</svg>

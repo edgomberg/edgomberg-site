@@ -1,0 +1,35 @@
+---
+import Base from '../layouts/Base.astro';
+import ThemeToggle from '../components/ThemeToggle';
+import Hero from '../components/Hero';
+import About from '../components/About';
+import Projects from '../components/Projects';
+import Writing from '../components/Writing';
+import Connect from '../components/Connect';
+---
+
+<Base title="Ed Gomberg" description="Entrepreneur, builder, writer.">
+  <ThemeToggle client:load />
+
+  <main>
+    <section id="hero">
+      <Hero client:load />
+    </section>
+
+    <section id="about">
+      <About client:load />
+    </section>
+
+    <section id="projects">
+      <Projects client:load />
+    </section>
+
+    <section id="writing">
+      <Writing client:load />
+    </section>
+
+    <section id="connect">
+      <Connect client:load />
+    </section>
+  </main>
+</Base>
