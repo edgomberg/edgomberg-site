@@ -1,0 +1,113 @@
+---
+// FOOTER-ONLY link per Ed's forcing mechanism. Do NOT add to Sidebar or top nav.
+// Building-in-public surface for AI exec assistant work. Intentionally not polished.
+import Base from '../layouts/Base.astro';
+import Sidebar from '../components/Sidebar';
+import Footer from '../components/Footer';
+---
+
+<Base title="Workflows — Ed Gomberg" description="How I'm building an AI executive assistant in public. Mid-process notes, not post-victory.">
+  <Sidebar client:load />
+
+  <main>
+    <div id="lo1">
+      <article style="padding-top: 7rem; padding-bottom: 3.5rem;">
+        <h1 class="text-charcoal dark:text-text-dark" style="font-family: var(--font-serif); font-weight: 500; font-size: clamp(1.5rem, 4vw, 2.25rem); line-height: 1.3; letter-spacing: -0.01em; margin-bottom: 2rem;">
+          Building an AI exec assistant in public
+        </h1>
+
+        <div class="prose">
+          <p class="text-charcoal-light dark:text-muted-dark" style="font-size: 15px; line-height: 1.75;">
+            This morning I needed to check into a flight and get the boarding pass QR onto my phone. The agent checked me in. It screenshotted the boarding pass. Then it couldn't send the image to my phone because my WhatsApp bridge is text-only and WhatsApp doesn't let you automate file sends without a business account. I tapped through it manually. Five extra steps. The gap was obvious.
+          </p>
+
+          <p class="text-charcoal-light dark:text-muted-dark" style="font-size: 15px; line-height: 1.75;">
+            This page is where I document that work. What I've built, what's broken, what I'm fixing. If you're building your own version of this, maybe some of it helps. If not, you can close the tab. No one's waiting on a newsletter signup.
+          </p>
+
+          <p class="text-charcoal-light dark:text-muted-dark" style="font-size: 15px; line-height: 1.75;">
+            The setup: Claude Code on a MacBook, roughly 80 custom skills, MCPs wired to Gmail, Calendar, Telegram, Slack, Notion, Attio, WhatsApp (read-only), Playwright browser, QuickBooks. Pixel 10 Pro Fold as phone. The goal isn't a shiny dashboard. It's a system that reduces my daily friction to under a minute and shuts up when nothing needs me.
+          </p>
+        </div>
+
+        <div class="border-brown-muted/10 dark:border-muted-dark/10" style="margin-top: 3rem; padding-top: 2rem; border-top-width: 1px; border-top-style: solid;">
+          <h2 class="text-brown-muted dark:text-muted-dark" style="font-size: 11px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 1rem;">
+            Five patterns that work
+          </h2>
+
+          <div class="prose">
+            <h3 class="text-charcoal dark:text-text-dark" style="font-size: 18px; font-weight: 600; margin-top: 1.5rem; margin-bottom: 0.5rem;">1. Suppression with an expiry date</h3>
+            <p class="text-charcoal-light dark:text-muted-dark" style="font-size: 15px; line-height: 1.75;">
+              Every morning the agent shows me items to triage. One of the responses is "resolved." When I hit it, I write one sentence and pick a date. The item vanishes until that date. It comes back if conditions changed. This sounds trivial. It isn't. Without it you re-decide the same email seven days in a row and call it discipline. With it, your decision actually sticks.
+            </p>
+
+            <h3 class="text-charcoal dark:text-text-dark" style="font-size: 18px; font-weight: 600; margin-top: 1.5rem; margin-bottom: 0.5rem;">2. Silent by default</h3>
+            <p class="text-charcoal-light dark:text-muted-dark" style="font-size: 15px; line-height: 1.75;">
+              A heartbeat process runs in the background. It scans email, calendar, Slack. If nothing is medium-or-above urgency, it outputs nothing. No buzz, no ping, no "here's a recap of nothing." Most AI exec setups fail here. They surface everything to prove they're working. Mine stays quiet until I'd regret not knowing.
+            </p>
+
+            <h3 class="text-charcoal dark:text-text-dark" style="font-size: 18px; font-weight: 600; margin-top: 1.5rem; margin-bottom: 0.5rem;">3. One item at a time</h3>
+            <p class="text-charcoal-light dark:text-muted-dark" style="font-size: 15px; line-height: 1.75;">
+              Triage is sequential, not parallel. One item, one decision, next item. Yes, no, edit, defer with reason, or resolved. Under three minutes for the whole loop. Parallel review feels productive and produces nothing.
+            </p>
+
+            <h3 class="text-charcoal dark:text-text-dark" style="font-size: 18px; font-weight: 600; margin-top: 1.5rem; margin-bottom: 0.5rem;">4. Telegram Saved Messages as the phone inbox</h3>
+            <p class="text-charcoal-light dark:text-muted-dark" style="font-size: 15px; line-height: 1.75;">
+              Every alert from the AI goes to one place on my phone. Saved Messages. Not email, not Slack, not SMS. One channel. Notifications on. Everything else muted. I pick up my phone and either there's something or there isn't.
+            </p>
+
+            <h3 class="text-charcoal dark:text-text-dark" style="font-size: 18px; font-weight: 600; margin-top: 1.5rem; margin-bottom: 0.5rem;">5. Degraded mode as a first-class feature</h3>
+            <p class="text-charcoal-light dark:text-muted-dark" style="font-size: 15px; line-height: 1.75;">
+              When a service is down, the system keeps working with cached state and tells me what it couldn't reach. It doesn't crash, doesn't silently skip, doesn't pretend. This is boring reliability engineering applied to a personal tool. Most people skip it because building for sunshine is faster. Then the one day the API fails, your whole morning routine breaks.
+            </p>
+          </div>
+        </div>
+
+        <div class="border-brown-muted/10 dark:border-muted-dark/10" style="margin-top: 3rem; padding-top: 2rem; border-top-width: 1px; border-top-style: solid;">
+          <h2 class="text-brown-muted dark:text-muted-dark" style="font-size: 11px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 1rem;">
+            What I'm building next
+          </h2>
+
+          <div class="prose">
+            <p class="text-charcoal-light dark:text-muted-dark" style="font-size: 15px; line-height: 1.75;">
+              <strong>WhatsApp Business API bridge.</strong> Official, low ban risk, costs about half a cent per message. Fixes the boarding pass problem permanently. Four to six hours of work plus a few days for business account approval.
+            </p>
+
+            <p class="text-charcoal-light dark:text-muted-dark" style="font-size: 15px; line-height: 1.75;">
+              <strong>Pixel handoff via Telegram channel.</strong> Private channel between my laptop and my phone. Paste a link or a draft on the laptop, it's on my phone in ten seconds without AirDrop or email. Two hours to wire.
+            </p>
+
+            <p class="text-charcoal-light dark:text-muted-dark" style="font-size: 15px; line-height: 1.75;">
+              <strong>Proactive flight delay alerts.</strong> The morning briefing reads my calendar, finds flight numbers, calls FlightAware, and surfaces delays as red-tier items. I stop refreshing airline apps. Four to five hours.
+            </p>
+          </div>
+        </div>
+
+        <div class="border-brown-muted/10 dark:border-muted-dark/10" style="margin-top: 3rem; padding-top: 2rem; border-top-width: 1px; border-top-style: solid;">
+          <h2 class="text-brown-muted dark:text-muted-dark" style="font-size: 11px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 1rem;">
+            What I avoid
+          </h2>
+
+          <div class="prose">
+            <ul class="text-charcoal-light dark:text-muted-dark" style="font-size: 15px; line-height: 1.75; padding-left: 1.25rem;">
+              <li>Auto-sending email. Drafts only. A bug in triage logic should embarrass me, not my contacts.</li>
+              <li>Auto-archiving. Suppressed is not archived. The distinction matters when you want accountability.</li>
+              <li>Duplicating alerts across different loops. One item, one surface per day.</li>
+              <li>Adding more triage options. Five is enough. Seven is too many.</li>
+              <li>Building telegram bots when Saved Messages does the job.</li>
+              <li>Ignoring degraded mode. If the first version doesn't have a story for "what if the API is down," I haven't finished.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="border-brown-muted/10 dark:border-muted-dark/10" style="margin-top: 3rem; padding-top: 2rem; border-top-width: 1px; border-top-style: solid;">
+          <p class="text-charcoal-light dark:text-muted-dark" style="font-size: 14px; line-height: 1.75; font-style: italic;">
+            Updated 2026-04-17. Raw research notes behind this page live in my Life OS repo. If you want to see the ugly version, ask.
+          </p>
+        </div>
+      </article>
+
+      <Footer />
+    </div>
+  </main>
+</Base>
