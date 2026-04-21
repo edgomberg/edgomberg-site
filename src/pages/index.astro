@@ -1,35 +1,54 @@
 ---
 import Base from '../layouts/Base.astro';
-import ThemeToggle from '../components/ThemeToggle';
+import Sidebar from '../components/Sidebar';
 import Hero from '../components/Hero';
-import About from '../components/About';
+import Carousel from '../components/Carousel';
 import Projects from '../components/Projects';
 import Writing from '../components/Writing';
-import Connect from '../components/Connect';
+import Footer from '../components/Footer';
 ---
 
-<Base title="Ed Gomberg" description="Entrepreneur, builder, writer.">
-  <ThemeToggle client:load />
+<Base title="Ed Gomberg" description="Showing his work on the gap between knowing and doing.">
+  <Sidebar client:load />
 
   <main>
-    <section id="hero">
-      <Hero client:load />
-    </section>
+    <div id="lo1">
+      <Hero client:idle />
+    </div>
 
-    <section id="about">
-      <About client:load />
-    </section>
+    <Carousel client:visible />
 
-    <section id="projects">
-      <Projects client:load />
-    </section>
-
-    <section id="writing">
-      <Writing client:load />
-    </section>
-
-    <section id="connect">
-      <Connect client:load />
-    </section>
+    <div id="lo2">
+      <Projects />
+      <Writing />
+      <Footer />
+    </div>
   </main>
 </Base>
+
+<script is:inline>
+  function applyLayout() {
+    var isMd = window.matchMedia('(min-width: 768px)').matches;
+    var els = document.querySelectorAll('#lo1, #lo2');
+    for (var i = 0; i < els.length; i++) {
+      var el = els[i];
+      el.style.maxWidth = '700px';
+      if (isMd) {
+        el.style.paddingLeft = '0';
+        el.style.paddingRight = '0';
+        el.style.marginLeft = 'max(80px, 15%)';
+      } else {
+        el.style.paddingLeft = '1.5rem';
+        el.style.paddingRight = '1.5rem';
+        el.style.marginLeft = '0';
+      }
+    }
+
+    var tracks = document.querySelectorAll('.carousel-track');
+    for (var j = 0; j < tracks.length; j++) {
+      tracks[j].style.paddingLeft = isMd ? 'max(80px, 15%)' : '1.5rem';
+    }
+  }
+  applyLayout();
+  window.addEventListener('resize', applyLayout);
+</script>

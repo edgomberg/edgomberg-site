@@ -1,14 +1,4 @@
 <svg width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
-  <defs>
-    <linearGradient id="fg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#d4a574;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#c4956a;stop-opacity:1" />
-    </linearGradient>
-  </defs>
-
-  <!-- Dark background with rounded corners -->
-  <rect width="32" height="32" rx="6" fill="#0a0a0a" />
-
-  <!-- E letter -->
-  <text x="3" y="24" font-family="Georgia, 'Times New Roman', serif" font-size="18" font-weight="bold" fill="url(#fg)" letter-spacing="-1">EG</text>
+  <rect width="32" height="32" rx="6" fill="#F5F0EB" />
+  <text x="4" y="23" font-family="Georgia, 'Times New Roman', serif" font-size="18" font-weight="500" fill="#3D3833" letter-spacing="-1">EG</text>
 </svg>

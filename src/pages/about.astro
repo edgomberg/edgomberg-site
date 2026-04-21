@@ -1,0 +1,74 @@
+---
+import Base from '../layouts/Base.astro';
+import Sidebar from '../components/Sidebar';
+import Footer from '../components/Footer';
+---
+
+<Base title="About — Ed Gomberg" description="Entrepreneur, builder, writer. Rebuilding toward depth, embodiment, and real connection.">
+  <Sidebar client:load />
+
+  <main>
+    <div id="lo1">
+      <article style="padding-top: 7rem; padding-bottom: 3.5rem;">
+        <h1 class="text-charcoal dark:text-text-dark" style="font-family: var(--font-serif); font-weight: 500; font-size: clamp(1.5rem, 4vw, 2.25rem); line-height: 1.3; letter-spacing: -0.01em; margin-bottom: 2rem;">
+          About
+        </h1>
+
+        <div class="prose">
+          <p class="text-charcoal-light dark:text-muted-dark" style="font-size: 15px; line-height: 1.75;">
+            I started my first business at 17. Not a side project — an actual operating company. By 25 I was running two businesses across three countries, managing 125 people, and living out of a carry-on. Born in Russia, raised in England and the US, operated across Israel, the Philippines, Portugal. Two citizenships. Six countries. The kind of resume that sounds impressive at dinner parties and exhausting everywhere else.
+          </p>
+
+          <p class="text-charcoal-light dark:text-muted-dark" style="font-size: 15px; line-height: 1.75;">
+            Here's what nobody told me: you can build the systems, hire the team, read every book, attend every retreat — and still run everything from survival mode. I did. For a decade. The gap between knowing something and being able to use it is the most underserved problem I've encountered — in business, in health, in relationships, in all of it. I call it integration. Most people call it "why do I keep doing the thing I know I shouldn't do."
+          </p>
+
+          <p class="text-charcoal-light dark:text-muted-dark" style="font-size: 15px; line-height: 1.75;">
+            I'm in therapy right now — not past tense, currently. I'm closing my last company deliberately, not because it failed but because I'm choosing to. I manage a chronic gut condition with a strict elimination diet and a 6-compartment supplement tray. I replaced my human executive assistant with an AI system I built myself. None of this is polished. I share mid-process because that's where the real material lives — not after the victory lap, but during the part where you're still figuring it out.
+          </p>
+
+          <p class="text-charcoal-light dark:text-muted-dark" style="font-size: 15px; line-height: 1.75;">
+            I'm moving to San Francisco. Building in public. Writing about integration — the stuff that sits between the insight and the result. Teacher hat, not guru hat. If something here is useful to you, good. That's the whole point.
+          </p>
+        </div>
+
+        <div class="border-brown-muted/10 dark:border-muted-dark/10" style="margin-top: 3rem; padding-top: 2rem; border-top-width: 1px; border-top-style: solid;">
+          <h2 class="text-brown-muted dark:text-muted-dark" style="font-size: 11px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 1rem;">
+            Right now
+          </h2>
+          <ul class="text-charcoal-light dark:text-muted-dark" style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 0.5rem; font-size: 14px;">
+            <li>Relocating from Kazan to San Francisco (Spring 2026)</li>
+            <li>Closing Welgo — deliberately stepping back from property management</li>
+            <li>Running KamaRooms hotel operations as acting CTO</li>
+            <li>Building Life OS — an AI-native personal operating system</li>
+            <li>Writing The Ed Letter on LinkedIn</li>
+          </ul>
+        </div>
+      </article>
+
+      <Footer />
+    </div>
+  </main>
+</Base>
+
+<script is:inline>
+  function applyLayout() {
+    var isMd = window.matchMedia('(min-width: 768px)').matches;
+    var els = document.querySelectorAll('#lo1');
+    for (var i = 0; i < els.length; i++) {
+      var el = els[i];
+      el.style.maxWidth = '700px';
+      if (isMd) {
+        el.style.paddingLeft = '0';
+        el.style.paddingRight = '0';
+        el.style.marginLeft = 'max(80px, 15%)';
+      } else {
+        el.style.paddingLeft = '1.5rem';
+        el.style.paddingRight = '1.5rem';
+        el.style.marginLeft = '0';
+      }
+    }
+  }
+  applyLayout();
+  window.addEventListener('resize', applyLayout);
+</script>
